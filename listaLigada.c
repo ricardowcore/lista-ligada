@@ -57,7 +57,7 @@ void addContatinho( lista *LISTA, char nome[50], int numero )
 	// Apontando o inicio da lista para o novo contato criado
 	*LISTA = Novocontato;
 
-	
+
 }
 
 int pesquisarContatinho(lista *LISTA, char nome[50])
@@ -83,7 +83,7 @@ int pesquisarContatinho(lista *LISTA, char nome[50])
 	{
 		// Verificação lógica para comparar o nome recebido com os nomes da lista
 		if (strncmp(contatinhoPesquisa->nome, nome, 50)==0)
-		{	
+		{
 			// Se for encontrado, retorna o numero do contao
 			return printf("Numero do contatinho: %d\n", contatinhoAtual->numero);
 		}
@@ -115,44 +115,24 @@ int excluirVacilao(lista *LISTA, char nome[50]){
 	no *vacilao;
 	// Apontando o novo no para o inicio da lista
 	vacilao = *LISTA;
-
-	// Se o vacilao for o primeiro da lista ele ja é excluido
-	if (strncmp(vacilao->nome, nome, 50)==0)
-	{
-		// passando o ponteiro da lista para o proximo elemento
-		*LISTA = vacilao->prox;
-		// Jogando o contato do vacilão fora
-		free(vacilao);
-		// Voltando mensagem de sucesso para o user
-		return printf("Você ta melhor sem ele agora migs\n");
-	}
+	vacilao = (no *) malloc(sizeof(no));
+	strcpy (vacilao->nome, nome);
+	printf("%s\n",vacilao->nome);
+	//
+	// // Se o vacilao for o primeiro da lista ele ja é excluido
+	// if (strncmp(vacilao->nome, nome, 50)==0)
+	// {
+	// 	// passando o ponteiro da lista para o proximo elemento
+	// 	*LISTA = vacilao->prox;
+	// 	// Jogando o contato do vacilão fora
+	// 	free(vacilao);
+	// 	// Voltando mensagem de sucesso para o user
+	// 	return printf("Você ta melhor sem ele agora migs\n");
+	// }
 
 
 	// Caso o vacilão não tiver no inicio da lista a gente vai atras dele
-
-	no *contatinhoAtual;
-	contatinhoAtual = *LISTA;
-	contatinhoAtual = (no *) malloc(sizeof(no));
-	strcpy (contatinhoAtual->nome, nome);
-
-
-
-	no *contatoAnterior;
-	contatoAnterior = (no *) malloc(sizeof(no));
-	while(contatinhoAtual->prox != NULL && strncmp(contatinhoAtual->nome, nome, 50) != 0)
-	{
-		contatoAnterior = contatinhoAtual;
-		contatinhoAtual = contatinhoAtual->prox;
-	}
-	if (strncmp(contatinhoAtual->nome, nome, 50)==0)
-	{
-		contatoAnterior->prox = contatinhoAtual->prox;
-		free(contatinhoAtual);
-		return printf("Você ta melhor sem ele agora migs\n");
-	}else
-	{
-		return printf("Ele nem ta na sua agenda migs\n");
-	}
+	//
 
 
 
@@ -164,13 +144,63 @@ int excluirVacilao(lista *LISTA, char nome[50]){
 
 
 
-
+	// no *contatinhoAtual;
+	// contatinhoAtual = *LISTA;
+	// contatinhoAtual = (no *) malloc(sizeof(no));
+	// strcpy (contatinhoAtual->nome, nome);
+	//
+	//
+	//
+	// no *contatoAnterior;
+	// contatoAnterior = (no *) malloc(sizeof(no));
+	// while(contatinhoAtual->prox != NULL)
+	// {
+	// 	contatoAnterior = contatinhoAtual;
+	// 	contatinhoAtual = contatinhoAtual->prox;
+	// }
+	// if (strncmp(contatinhoAtual->nome, nome, 50)==0)
+	// {
+	// 	contatoAnterior->prox = contatinhoAtual->prox;
+	// 	free(contatinhoAtual);
+	// 	return printf("Você ta melhor sem ele agora migs\n");
+	// }else
+	// {
+	// 	return printf("Ele nem ta na sua agenda migs\n");
+	// }
+	//
+	// no *contatinhoProx;
+	// contatinhoProx = (no *) malloc(sizeof(no));
+	//
+	// while (contatinhoAtual->prox != NULL) {
+	// 	if (strncmp(contatinhoAtual->nome, nome, 50)==0) {
+	//
+	// 		no *contatinhoAnterior;
+	// 		contatinhoAnterior = (no *) malloc(sizeof(no));
+	//
+	// 		contatinhoAnterior->cod = (contatinhoAtual->cod-1);
+	// 		no *contatinhoAux;
+	// 		contatinhoAux = *LISTA;
+	// 		while (contatinhoAux->prox != NULL) {
+	// 			if (contatinhoAux->cod == contatinhoAnterior->cod) {
+	// 				contatinhoAnterior = contatinhoAux;
+	// 				contatinhoAnterior->prox = contatinhoProx;
+	// 				free(contatinhoAtual);
+	// 				return printf("certo\n");
+	// 			}
+	// 			contatinhoAux = contatinhoAux->prox;
+	// 		}
+	// 	}
+	// 	contatinhoAtual = contatinhoAtual->prox;
+	// }
+	//
+	//
+	//
 
 	// while(contatinhoAtual->prox != NULL)
 	// {
 	// 	printf("primeiro\n");
 	// 	if (strncmp(vacilao->nome, nome, 50)==0)
-	// 	{	
+	// 	{
 	// 		printf("segundo\n");
 	// 		no *contatoAnterior;
 	// 		contatoAnterior->cod = contatinhoAtual->cod-1;
@@ -198,6 +228,13 @@ int excluirVacilao(lista *LISTA, char nome[50]){
 	// }
 }
 
+int contatinhosLetra(lista *LISTA, char nome[50])
+{
+
+}
+
+
+
 
 
 int menuContato()
@@ -221,7 +258,7 @@ int menuContato()
 
 int main(int argc, char const *argv[])
 {
-	
+
 	int opcao, numero;
 	char nome[50];
 
@@ -245,7 +282,7 @@ int main(int argc, char const *argv[])
 			printf("Digite o nome do contatinho:\n");
 			scanf("%s", nome);
 			pesquisarContatinho(&LL, nome);
-			break;	
+			break;
 
 		case 3:
 			printf("Excluir o vacilão\n");
@@ -254,15 +291,20 @@ int main(int argc, char const *argv[])
 			excluirVacilao(&LL, nome);
 			break;
 
+			case 4:
+			printf("Contatinhos com a letra:\n");
+			scanf("%s\n", nome);
+			break;
+
 		case 5:
 			printf("Localizar o contatinho:\n");
 			mostrarContatos(&LL);
-			break;	
+			break;
 		}
 
-	
+
 	}while( opcao !=0 );
-	
+
 
 
 
