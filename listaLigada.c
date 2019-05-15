@@ -111,121 +111,21 @@ int excluirVacilao(lista *LISTA, char nome[50]){
 	// backup da lista
 	no *inicio;
 	inicio = *LISTA;
-	// Criando um novo nó
+
+
 	no *vacilao;
-	// Apontando o novo no para o inicio da lista
-	vacilao = *LISTA;
 	vacilao = (no *) malloc(sizeof(no));
-	strcpy (vacilao->nome, nome);
-	printf("%s\n",vacilao->nome);
-	//
-	// // Se o vacilao for o primeiro da lista ele ja é excluido
-	// if (strncmp(vacilao->nome, nome, 50)==0)
-	// {
-	// 	// passando o ponteiro da lista para o proximo elemento
-	// 	*LISTA = vacilao->prox;
-	// 	// Jogando o contato do vacilão fora
-	// 	free(vacilao);
-	// 	// Voltando mensagem de sucesso para o user
-	// 	return printf("Você ta melhor sem ele agora migs\n");
-	// }
+	strcpy(vacilao->nome, nome);
 
+	vacilao = *LISTA;
 
-	// Caso o vacilão não tiver no inicio da lista a gente vai atras dele
-	//
+	no *contatinhoAnterior;
+	contatinhoAnterior = (no *) malloc(sizeof(no));
 
+	if (vacilao->prox == NULL)
+	{
 
-
-
-
-
-
-
-
-
-
-	// no *contatinhoAtual;
-	// contatinhoAtual = *LISTA;
-	// contatinhoAtual = (no *) malloc(sizeof(no));
-	// strcpy (contatinhoAtual->nome, nome);
-	//
-	//
-	//
-	// no *contatoAnterior;
-	// contatoAnterior = (no *) malloc(sizeof(no));
-	// while(contatinhoAtual->prox != NULL)
-	// {
-	// 	contatoAnterior = contatinhoAtual;
-	// 	contatinhoAtual = contatinhoAtual->prox;
-	// }
-	// if (strncmp(contatinhoAtual->nome, nome, 50)==0)
-	// {
-	// 	contatoAnterior->prox = contatinhoAtual->prox;
-	// 	free(contatinhoAtual);
-	// 	return printf("Você ta melhor sem ele agora migs\n");
-	// }else
-	// {
-	// 	return printf("Ele nem ta na sua agenda migs\n");
-	// }
-	//
-	// no *contatinhoProx;
-	// contatinhoProx = (no *) malloc(sizeof(no));
-	//
-	// while (contatinhoAtual->prox != NULL) {
-	// 	if (strncmp(contatinhoAtual->nome, nome, 50)==0) {
-	//
-	// 		no *contatinhoAnterior;
-	// 		contatinhoAnterior = (no *) malloc(sizeof(no));
-	//
-	// 		contatinhoAnterior->cod = (contatinhoAtual->cod-1);
-	// 		no *contatinhoAux;
-	// 		contatinhoAux = *LISTA;
-	// 		while (contatinhoAux->prox != NULL) {
-	// 			if (contatinhoAux->cod == contatinhoAnterior->cod) {
-	// 				contatinhoAnterior = contatinhoAux;
-	// 				contatinhoAnterior->prox = contatinhoProx;
-	// 				free(contatinhoAtual);
-	// 				return printf("certo\n");
-	// 			}
-	// 			contatinhoAux = contatinhoAux->prox;
-	// 		}
-	// 	}
-	// 	contatinhoAtual = contatinhoAtual->prox;
-	// }
-	//
-	//
-	//
-
-	// while(contatinhoAtual->prox != NULL)
-	// {
-	// 	printf("primeiro\n");
-	// 	if (strncmp(vacilao->nome, nome, 50)==0)
-	// 	{
-	// 		printf("segundo\n");
-	// 		no *contatoAnterior;
-	// 		contatoAnterior->cod = contatinhoAtual->cod-1;
-	// 		printf("terceiro\n");
-	// 		while(vacilao->prox != NULL)
-	// 		{
-	// 			printf("quarto\n");
-	// 			if (vacilao->cod == contatoAnterior->cod)
-	// 			{
-	// 				printf("quinto\n");
-	// 				vacilao = contatinhoAtual;
-	// 				no *contatoProx;
-	// 				contatoProx = contatinhoAtual->prox->prox;
-	// 				contatoAnterior = contatoProx;
-	// 				free(vacilao);
-	// 				return printf("Você ta melhor sem ele agora migS\n");
-	// 			}
-	// 			printf("sexto\n");
-	// 			vacilao = vacilao->prox;
-	// 		}
-	// 		printf("setimo\n");
-	// 	}
-	// 	contatinhoAtual = contatinhoAtual->prox;
-	// 	printf("oitavo\n");
-	// }
+	}
 }
 
 int contatinhosLetra(lista *LISTA, char nome[50])
